@@ -1,49 +1,55 @@
 # Backend - Pré-Cadastro de Leads
 
-Este projeto representa o backend da solução de pré-cadastro de leads utilizando Spring Boot, arquitetura hexagonal, Kafka e PostgreSQL.
+Este repositório contém uma aplicação backend em Spring Boot para processar pré-cadastro de leads, com estrutura simples, documentação via Swagger e testes unitários com JUnit 5.
 
-## Tecnologias
+## 🔧 Tecnologias
 
 - Java 17
-- Spring Boot
-- Spring Data JPA
-- Spring Security
-- Kafka / Kafka Streams
-- PostgreSQL
-- Docker e Docker Compose
+- Spring Boot 3.1
+- Spring Web
+- Springdoc OpenAPI (Swagger)
+- JUnit 5
 
-## Como Executar
+## 📁 Estrutura de Pastas
+
+```
+src/
+├── main/
+│   ├── java/com/example/leads/
+│   │   ├── config/            # Swagger config
+│   │   ├── controller/        # REST endpoint
+│   │   ├── model/             # Objeto Lead
+│   │   └── service/           # Regra de negócio
+└── test/
+    └── java/com/example/leads/service/LeadServiceTest.java
+```
+
+## 🚀 Como Executar
 
 ```bash
-# compilar
-./mvnw clean install
-
-# rodar local
 ./mvnw spring-boot:run
 ```
 
-## Docker Compose
+## 🧪 Testes
 
 ```bash
-docker-compose up -d
+./mvnw test
 ```
 
-## Documentação da API
+## 📖 Swagger
 
 Após start:
+
 ```
 http://localhost:8080/swagger-ui.html
 ```
 
-## Estrutura
+## 📦 Build
 
-- `domain` — regras de negócio e entidades
-- `application` — casos de uso e ports
-- `adapter.in.web` — controllers REST
-- `adapter.out.persistence` — JPA
-- `adapter.out.kafka` — producer
-- `config` — segurança, Kafka, Swagger
+```bash
+./mvnw clean install
+```
 
-## Licença
+## 📝 Licença
 
 MIT
