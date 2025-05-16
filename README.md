@@ -1,4 +1,4 @@
-# Backend - Arquitetura Hexagonal com Swagger e JUnit
+# Backend - Pre Cadastro Leads
 
 Este projeto implementa a solução de pré-cadastro de leads com arquitetura hexagonal (Ports and Adapters), documentação com Swagger e testes unitários com JUnit.
 
