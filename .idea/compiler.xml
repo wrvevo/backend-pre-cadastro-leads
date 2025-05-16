@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="pre-cadastro-leads" />
         <module name="pre-cadastro-hexagonal" />
+        <module name="backend-pre-cadastro-leads" />
       </profile>
     </annotationProcessing>
   </component>
