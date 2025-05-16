@@ -1,4 +1,43 @@
 
+# BACKEND - Pré-Cadastro de Leads
+
+Este projeto demonstra uma arquitetura hexagonal com Spring Boot e Kafka para captação de leads durante uma campanha de marketing massiva.
+
+## Camadas
+- **Domain**: Entidades e regras de negócio.
+- **Application**: Casos de uso.
+- **Adapters**: Entradas (REST Controller) e saídas (Kafka, Banco).
+- **Configuration**: Bootstrap da aplicação.
+
+## Tecnologias
+- Java 17
+- Spring Boot 3.x
+- Apache Kafka + Kafka Streams
+- PostgreSQL
+- Arquitetura Hexagonal
+- Docker
+
+## Como executar
+
+```bash
+./mvnw spring-boot:run
+```
+
+## Como testar
+
+```bash
+./mvnw test
+```
+
+## Estrutura de pacotes
+
+- `domain` – Entidade Lead
+- `application.port.in` – Interface LeadUseCase
+- `application.port.out` – Interfaces para persistência e Kafka
+- `application.service` – Implementação do caso de uso
+- `adapter.in.web` – REST Controller
+- `adapter.out.persistence` – Repositório JPA
+- `adapter.out.kafka` – Publicador Kafka
 
 ## 💻 Testes com Postman
 
@@ -20,3 +59,6 @@ A coleção `PreCadastroLeads.postman_collection.json` está incluída na pasta 
 ```
 
 A resposta e o log do consumidor Kafka indicarão que o lead foi enviado com sucesso para processamento assíncrono.
+
+## Licença
+MIT
