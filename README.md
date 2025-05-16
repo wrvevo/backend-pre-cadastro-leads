@@ -1,61 +1,22 @@
-# Backend - Pre Cadastro Leads
 
-Este projeto implementa a solução de pré-cadastro de leads com arquitetura hexagonal (Ports and Adapters), documentação com Swagger e testes unitários com JUnit.
 
-## 📚 Tecnologias Utilizadas
+## 💻 Testes com Postman
 
-- Java 17
-- Spring Boot
-- Swagger (Springdoc OpenAPI)
-- JUnit 5
-- Mockito
+A coleção `PreCadastroLeads.postman_collection.json` está incluída na pasta `/collections`.
 
-## 🔌 Arquitetura Hexagonal
+### Como usar
 
-- `domain/model`: Entidades de negócio
-- `application/port/in`: Interfaces dos casos de uso
-- `application/port/out`: Interfaces para adaptadores externos
-- `application/service`: Casos de uso
-- `adapter/in/web`: Controllers REST
-- `adapter/out/repository`: Repositórios (ex: JPA)
-- `adapter/out/kafka`: Produção de eventos
-- `config`: Swagger e beans globais
+1. Importe no Postman: `File > Import > Upload Files`
+2. Escolha a coleção `PreCadastroLeads.postman_collection.json`
+3. Execute a requisição `Cadastrar Lead` para testar a API em `http://localhost:8080/api/v1/leads`
 
-## 🧪 Testes
-
-```bash
-./mvnw test
+### Payload de exemplo:
+```json
+{
+  "nome": "João da Silva",
+  "cpf": "12345678901",
+  "email": "joao@email.com"
+}
 ```
 
-## 🚀 Execução
-
-```bash
-./mvnw spring-boot:run
-```
-
-## 📖 Swagger
-
-Acesse após start:
-```
-http://localhost:8080/swagger-ui.html
-```
-
-## 🐳 Dockerfile
-
-```dockerfile
-FROM eclipse-temurin:17-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-## 📦 Build para Docker
-
-```bash
-./mvnw clean install -DskipTests
-docker build -t pre-cadastro-backend .
-```
-
-## 📝 Licença
-
-MIT
+A resposta e o log do consumidor Kafka indicarão que o lead foi enviado com sucesso para processamento assíncrono.

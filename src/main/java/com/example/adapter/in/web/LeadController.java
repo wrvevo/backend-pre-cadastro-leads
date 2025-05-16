@@ -2,6 +2,7 @@ package com.example.adapter.in.web;
 
 import com.example.application.port.in.CadastrarLeadUseCase;
 import com.example.domain.model.Lead;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,8 @@ public class LeadController {
     }
 
     @PostMapping
-    public void cadastrar(@RequestBody Lead lead) {
+    public ResponseEntity<Void> cadastrar(@RequestBody Lead lead) {
         useCase.cadastrar(lead);
+        return ResponseEntity.ok().build();
     }
 }
